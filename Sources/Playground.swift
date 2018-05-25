@@ -24,9 +24,17 @@ extension CommandLine {
 extension Date {
     var today: String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        let date = formatter.string(from: self)
-        return date.replacingOccurrences(of: "/", with: "-")
+        formatter.dateStyle = .none
+        formatter.dateFormat = "yyyy-MM-dd"
+        let dateString = formatter.string(from: self)
+        return dateString
+    }
+
+    var todayUnique: String {
+        let uuid = UUID()
+        let uuidString = uuid.uuidString
+        let uuidPartial = uuidString.split(separator: "-", maxSplits: 1, omittingEmptySubsequences: true).first!
+        return "\(self.today)-\(uuidPartial)"
     }
 }
 
