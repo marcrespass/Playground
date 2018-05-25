@@ -195,8 +195,9 @@ struct Options {
     var autoRun = false
     var displayHelp = false
 
+    // MARK: - defaultTargetPath
     init(arguments: [String] = CommandLine.argumentsExcludingLaunchPath) throws {
-        let defaultTargetPath = "~/Desktop/\(Date().today).playground"
+        let defaultTargetPath = "~/Developer/Playgrounds/\(Date().todayUnique).playground"
         targetPath = defaultTargetPath
 
         var currentFlag: Flag?
