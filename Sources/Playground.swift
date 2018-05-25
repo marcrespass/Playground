@@ -188,7 +188,7 @@ enum Flag: String {
 
 struct Options {
     var targetPath: String
-    var platform = Playground.Platform.iOS
+    var platform = Playground.Platform.macOS
     var dependencies = [Folder]()
     var code: Code? = nil
     var forceOverwrite = false
